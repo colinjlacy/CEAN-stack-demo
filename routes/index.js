@@ -1,7 +1,9 @@
 /**
  * Created by colinjlacy on 11/27/15.
  */
-const 
+'use strict';
+
+const
 	RecordModel = require('../models/recordmodel');
 
 let appRouter = app => {
@@ -24,7 +26,7 @@ let appRouter = app => {
 		.post('/api/', (req, res) => {
 			RecordModel.save(req.body, (err, data) => {
 				if(err) {
-					return res.status(400).send(error);
+					return res.status(400).send(err);
 				}
 				res.send(data);
 			});
@@ -39,8 +41,8 @@ let appRouter = app => {
 		// run the GET to the 'id' param
 		.get('/api/:id', (req, res) => {
 			RecordModel.find(req.params.id, (err, data) => {
-				if(error) {
-					return res.status(400).send(error);
+				if(err) {
+					return res.status(400).send(err);
 				}
 				res.send(data);
 			});
@@ -48,17 +50,17 @@ let appRouter = app => {
 		// run the DELETE to the 'id' param
 		.delete('/api/:id', (req, res) => {
 			RecordModel.delete(req.params.id, (err, data) => {
-				if(error) {
-					return res.status(400).send(error);
+				if(err) {
+					return res.status(400).send(err);
 				}
 				res.send(data);
 			});
 		})
 		// run the GET route
 		.get('/api/', (req, res) => {
-			RecordModel.findAll((err, res) => {
-				if(error) {
-					return res.status(400).send(error);
+			RecordModel.findAll((err, data) => {
+				if(err) {
+					return res.status(400).send(err);
 				}
 				res.send(data);
 			});
