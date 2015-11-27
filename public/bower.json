@@ -1,0 +1,24 @@
+{
+  "name": "public",
+  "authors": [
+    "colinjlacy <colin@webcake.co>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-ui-router": "ui-router#~0.2.15",
+    "bootstrap": "~3.3.6"
+  }
+}
