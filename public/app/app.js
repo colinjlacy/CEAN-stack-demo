@@ -17,7 +17,7 @@ angular.module('recordsapp', ['ui.router'])
 				controller: 'MainController',
 				cache: false
 			});
-		$urlRouterProvider.otherwise('list');
+		$urlRouterProvider.otherwise('/');
 	})
 	.controller('MainController', function($scope, $http, $state, $stateParams) {
 
@@ -53,7 +53,7 @@ angular.module('recordsapp', ['ui.router'])
 		$scope.delete = function(id, index) {
 			$http(
 				{
-					method: "POST",
+					method: "DELETE",
 					url: "/api/" + id
 				}
 			).then(function() {
