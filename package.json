@@ -1,0 +1,17 @@
+{
+  "name": "cean",
+  "version": "1.0.0",
+  "description": "n example of using the Node.js SDK for Couchbase to create a simple CEAN stack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "couchbase": "^2.1.2",
+    "express": "^4.13.3",
+    "uuid": "^2.0.1"
+  }
+}
