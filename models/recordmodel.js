@@ -20,7 +20,51 @@ RecordModel.save = (data, callback) => {
 
 	db.upsert(documentId, jsonObject, (err, res) => {
 		if (err) {
-			callback(err, null);
+			return callback(err, null);
+		} else {
+			callback(null, {message: 'baller', data: res});
+		}
+	});
+};
+
+RecordModel.find = (id, callback) => {
+	const
+		// this is NOT OK
+		statement = "SELECT firstname, lastname, email " +
+			"FROM `" + config.couchbase.bucket + "` AS users " +
+			"WHERE META(users).id = $1";
+
+	console.log(query.fromString(statement));
+
+	db.query(query.fromString(statement), [id], (err, res) => {
+		if(err) {
+			return callback(err, null);
+		} else {
+			callback(null, res);
+		}
+	});
+
+};
+
+RecordModel.delete = (id, callback) => {
+	db.remove(id, (err, res) => {
+		if(err) {
+			return callback(err, null);
+		} else {
+			callback(null, {message: 'baller', data: res});
+		}
+	});
+};
+
+RecordModel.findAll = callback => {
+	const
+		statement = "SELECT META(users).id, firstname, lastname, email " +
+			"FROM `" + config.couchbase.bucket + "` AS users",
+		indexQuery = N1qlQuery.fromString(statement).consistency(N1qlQuery.Consistency.REQUEST_PLUS);
+
+	db.query(indexQuery, (err, res) => {
+		if(err) {
+			return callback(err, null);
 		} else {
 			callback(null, res);
 		}
