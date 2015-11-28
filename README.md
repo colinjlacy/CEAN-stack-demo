@@ -16,7 +16,7 @@ After that you'll have to add an index.  There's probably an easier way to do th
 
 Start up the **Couchbase Query Client** from the command line.  For me, one a Mac, this meant running the following exec:
  
-	$ `/Applications/Couchbase\ Server.app/Contents/Resources/couchbase-core/bin/cbq`
+	$ /Applications/Couchbase\ Server.app/Contents/Resources/couchbase-core/bin/cbq
 	
 According to Nic Raboy, on a PC you would run:
 
